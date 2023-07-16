@@ -1,12 +1,10 @@
-
-
-
 import React,{ useEffect, useState } from "react";
 import PokemonThumbnail from "./Components/PokemonThumbnail";
 
-
 function App() {
   const [allPokemons,setAllPokemons] = useState([]);
+  const [filterValue,setFilterValue] = useState('all');
+  const [filteredPokemons,setAllFilteredPOkemons] = useState([]);
   const [loadPoke,setLoadPoke] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
   const getAllPokemons = async () =>{
     const res = await fetch(loadPoke)
@@ -23,12 +21,28 @@ function App() {
     createPokemonObject(data.results)
     await console.log(allPokemons)
   }
+
+  const applyFilter = (value) => {
+    setFilterValue(value);
+    let temp = allPokemons.filter(() => {
+
+    })
+
+  }
+
   useEffect(()=>{
     getAllPokemons()
   },[])
 
   return (
     <div className="app-container">
+      <div id="myBtnContainer">
+        <button className="btn active" onClick={()=>applyFilter('all')}> Show all</button>
+        <button className="btn" onClick={()=>applyFilter('cars')}> Cars</button>
+        <button className="btn" onClick={()=>applyFilter('animals')}> Animals</button>
+        <button className="btn" onClick={()=>applyFilter('Fruits')}> Fruits</button>
+        <button className="btn" onClick={()=>applyFilter('Colors')}> Colors</button>
+      </div>
      <h1>Pokemon Kingdom .</h1>
     
      <div className="pokemon-container">

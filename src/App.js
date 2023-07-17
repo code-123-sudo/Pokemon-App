@@ -37,11 +37,17 @@ function App() {
   return (
     <div className="app-container">
       <div id="myBtnContainer">
-        <button className="btn active" onClick={()=>applyFilter('all')}> Show all</button>
-        <button className="btn" onClick={()=>applyFilter('cars')}> Cars</button>
-        <button className="btn" onClick={()=>applyFilter('animals')}> Animals</button>
-        <button className="btn" onClick={()=>applyFilter('Fruits')}> Fruits</button>
-        <button className="btn" onClick={()=>applyFilter('Colors')}> Colors</button>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Filter</button>
+        <div class="dropdown-content">
+          <button className="btn active" onClick={()=>applyFilter('all')}>hp</button>
+          <button className="btn" onClick={()=>applyFilter('grass')}>attack</button>
+          <button className="btn" onClick={()=>applyFilter('bug')}> defense</button>
+          <button className="btn" onClick={()=>applyFilter('normal')}>special attack</button>
+          <button className="btn" onClick={()=>applyFilter('fire')}>special defense</button>
+          <button className="btn" onClick={()=>applyFilter('water')}>speed</button>
+        </div>
       </div>
      <h1>Pokemon Kingdom .</h1>
     

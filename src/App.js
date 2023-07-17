@@ -39,7 +39,7 @@ function App() {
       <div id="myBtnContainer">
       </div>
       <div class="dropdown">
-        <button class="dropbtn">Filter</button>
+        <button class="btn">Filter Value Type</button>
         <div class="dropdown-content">
           <button className="btn active" onClick={()=>applyFilter('all')}>hp</button>
           <button className="btn" onClick={()=>applyFilter('grass')}>attack</button>
@@ -48,6 +48,9 @@ function App() {
           <button className="btn" onClick={()=>applyFilter('fire')}>special defense</button>
           <button className="btn" onClick={()=>applyFilter('water')}>speed</button>
         </div>
+        <input type="text" value="Filter value"></input>
+        <input type="number" min="5" max="10" value="7"></input>
+        <input type="number" min="5" max="10" value="7"></input>
       </div>
      <h1>Pokemon Kingdom .</h1>
     

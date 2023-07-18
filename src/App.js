@@ -25,7 +25,7 @@ function App() {
 
   const applyFilter = (value) => {
     setFilterValue(value);
-    filterValues(35,60,"hp");
+    filterValues(35,60,"special-defense");
   }
 
   const filterValues = (value1,value2,value) => {
@@ -46,7 +46,61 @@ function App() {
       else {
         return false;
       }
-    }})
+    }
+
+    if ( value === "attack") {
+      console.log("---->" + pokemon.stats[1].base_stat)
+      if ( pokemon.stats[1].base_stat >= value1  && pokemon.stats[1].base_stat <= value2){
+        return true;
+      }
+    else {
+      return false;
+    }
+  }
+
+  if ( value === "defense") {
+    console.log("---->" + pokemon.stats[2].base_stat)
+    if ( pokemon.stats[2].base_stat >= value1  && pokemon.stats[2].base_stat <= value2){
+      return true;
+    }
+  else {
+    return false;
+  }
+}
+
+if ( value === "special-attack") {
+  console.log("---->" + pokemon.stats[3].base_stat)
+  if ( pokemon.stats[3].base_stat >= value1  && pokemon.stats[3].base_stat <= value2){
+    return true;
+  }
+else {
+  return false;
+}
+}
+
+if ( value === "special-defense") {
+  console.log("---->" + pokemon.stats[4].base_stat)
+  if ( pokemon.stats[4].base_stat >= value1  && pokemon.stats[4].base_stat <= value2){
+    return true;
+  }
+else {
+  return false;
+}
+}
+
+if ( value === "speed") {
+  console.log("---->" + pokemon.stats[5].base_stat)
+  if ( pokemon.stats[5].base_stat >= value1  && pokemon.stats[5].base_stat <= value2){
+    return true;
+  }
+else {
+  return false;
+}
+}
+  
+  
+  
+  })
     let tempList = [];
     console.log("-----1------")
     console.log(temp);

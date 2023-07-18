@@ -127,14 +127,14 @@ else {
             <button className="btn active" onClick={()=>applyFilter('hp')}>hp</button>
             <button className="btn" onClick={()=>applyFilter('attack')}>attack</button>
             <button className="btn" onClick={()=>applyFilter('defense')}> defense</button>
-            <button className="btn" onClick={()=>applyFilter('special attack')}>special attack</button>
-            <button className="btn" onClick={()=>applyFilter('special defense')}>special defense</button>
+            <button className="btn" onClick={()=>applyFilter('special-attack')}>special attack</button>
+            <button className="btn" onClick={()=>applyFilter('special-defense')}>special defense</button>
             <button className="btn" onClick={()=>applyFilter('speed')}>speed</button>
           </div>
           <p>From :</p>
-          <input type="number" min="5" max="10" value="7"></input>
+          <input type="number" value="7"></input>
           <p>To :</p>
-          <input type="number" min="5" max="10" value="7"></input>
+          <input type="number" value="7"></input>
         </div>
       </div>
       <h1>Pokemon Kingdom</h1>

@@ -235,7 +235,7 @@ h3{
 }
 
 .filterTypeHeading {
-  position: relative;
+  position: absolute;
   top: 5;
   left : 45%;
 }

@@ -39,8 +39,8 @@ function App() {
       <div id="myBtnContainer">
       </div>
       <div class="dropdown">
-        <button class="btn">Filter Value Type</button>
-        <p>From :</p>
+        <p>Filter Type Selector</p>
+        <button class="btn">Filter Type</button>
         <div class="dropdown-content">
           <button className="btn active" onClick={()=>applyFilter('hp')}>hp</button>
           <button className="btn" onClick={()=>applyFilter('attack')}>attack</button>

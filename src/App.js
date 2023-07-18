@@ -35,24 +35,27 @@ function App() {
   },[])
 
   return (
+    <div>
+    <div className="filterTypeHeading"> Filter Type Heading: {filterValue}</div>
     <div className="app-container">
       <div id="myBtnContainer">
       </div>
-      <p>Filter Type : {filterValue} </p>
-      <div class="dropdown">
-        <button class="btn">Filter Type</button>
-        <div class="dropdown-content">
-          <button className="btn active" onClick={()=>applyFilter('hp')}>hp</button>
-          <button className="btn" onClick={()=>applyFilter('attack')}>attack</button>
-          <button className="btn" onClick={()=>applyFilter('defense')}> defense</button>
-          <button className="btn" onClick={()=>applyFilter('special attack')}>special attack</button>
-          <button className="btn" onClick={()=>applyFilter('special defense')}>special defense</button>
-          <button className="btn" onClick={()=>applyFilter('speed')}>speed</button>
+      <div class="parentDiv">
+        <div class="dropdown">
+          <button class="btn">Filter Type</button>
+          <div class="dropdown-content">
+            <button className="btn active" onClick={()=>applyFilter('hp')}>hp</button>
+            <button className="btn" onClick={()=>applyFilter('attack')}>attack</button>
+            <button className="btn" onClick={()=>applyFilter('defense')}> defense</button>
+            <button className="btn" onClick={()=>applyFilter('special attack')}>special attack</button>
+            <button className="btn" onClick={()=>applyFilter('special defense')}>special defense</button>
+            <button className="btn" onClick={()=>applyFilter('speed')}>speed</button>
+          </div>
+          <p>From :</p>
+          <input type="number" min="5" max="10" value="7"></input>
+          <p>To :</p>
+          <input type="number" min="5" max="10" value="7"></input>
         </div>
-        <p>From :</p>
-        <input type="number" min="5" max="10" value="7"></input>
-        <p>To :</p>
-        <input type="number" min="5" max="10" value="7"></input>
       </div>
       <h1>Pokemon Kingdom</h1>
     
@@ -84,6 +87,7 @@ function App() {
             )}
        </div>
        <button className="load-more" onClick={()=>getAllPokemons()}>More Pokemons</button>
+     </div>
      </div>
     </div>
   );

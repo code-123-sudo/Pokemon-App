@@ -4,7 +4,7 @@ import PokemonThumbnail from "./Components/PokemonThumbnail";
 function App() {
   const [allPokemons,setAllPokemons] = useState([]);
   const [filterValue,setFilterValue] = useState('all');
-  const [filteredPokemons,setAllFilteredPOkemons] = useState([]);
+  const [allPokemonsFiltered,setAllPokemonsFiltered] = useState([]);
   const [loadPoke,setLoadPoke] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
   const getAllPokemons = async () =>{
     const res = await fetch(loadPoke)
@@ -20,15 +20,41 @@ function App() {
     }
     createPokemonObject(data.results)
     await console.log(allPokemons)
+    await applyFilter("all");
   }
 
   const applyFilter = (value) => {
     setFilterValue(value);
-    let temp = allPokemons.filter(() => {
+    filterValues(35,60,"hp");
+  }
 
-    })
+  const filterValues = (value1,value2,value) => {
+
+    console.log("inside pokemon filter function " + value );
+
+    let temp = allPokemons.filter((pokemon) => {
+      //if ( value === "all") {
+      //  return true;
+      //}else {
+      //  return false;
+     // }
+      if ( value === "hp") {
+        console.log("---->" + pokemon.stats[0].base_stat)
+        if ( pokemon.stats[0].base_stat >= value1  && pokemon.stats[0].base_stat <= value2){
+          return true;
+        }
+      else {
+        return false;
+      }
+    }})
+    let tempList = [];
+    console.log("-----1------")
+    console.log(temp);
+    console.log("------2-------")
+    setAllPokemonsFiltered(tempList => [...tempList,temp])
 
   }
+
 
   useEffect(()=>{
     getAllPokemons()

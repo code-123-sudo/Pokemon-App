@@ -40,19 +40,21 @@ function App() {
       </div>
       <div class="dropdown">
         <button class="btn">Filter Value Type</button>
+        <p>From :</p>
         <div class="dropdown-content">
-          <button className="btn active" onClick={()=>applyFilter('all')}>hp</button>
-          <button className="btn" onClick={()=>applyFilter('grass')}>attack</button>
-          <button className="btn" onClick={()=>applyFilter('bug')}> defense</button>
-          <button className="btn" onClick={()=>applyFilter('normal')}>special attack</button>
-          <button className="btn" onClick={()=>applyFilter('fire')}>special defense</button>
-          <button className="btn" onClick={()=>applyFilter('water')}>speed</button>
+          <button className="btn active" onClick={()=>applyFilter('hp')}>hp</button>
+          <button className="btn" onClick={()=>applyFilter('attack')}>attack</button>
+          <button className="btn" onClick={()=>applyFilter('defense')}> defense</button>
+          <button className="btn" onClick={()=>applyFilter('special attack')}>special attack</button>
+          <button className="btn" onClick={()=>applyFilter('special defense')}>special defense</button>
+          <button className="btn" onClick={()=>applyFilter('speed')}>speed</button>
         </div>
-        <input type="text" value="Filter value"></input>
+        <p>From :</p>
         <input type="number" min="5" max="10" value="7"></input>
+        <p>To :</p>
         <input type="number" min="5" max="10" value="7"></input>
       </div>
-     <h1>Pokemon Kingdom .</h1>
+      <h1>Pokemon Kingdom</h1>
     
      <div className="pokemon-container">
        <div className="all-container">

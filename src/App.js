@@ -38,8 +38,8 @@ function App() {
     <div className="app-container">
       <div id="myBtnContainer">
       </div>
+      <p>Filter Type : {filterValue} </p>
       <div class="dropdown">
-        <p>Filter Type Selector</p>
         <button class="btn">Filter Type</button>
         <div class="dropdown-content">
           <button className="btn active" onClick={()=>applyFilter('hp')}>hp</button>

@@ -19,13 +19,13 @@ function App() {
       });
     }
     createPokemonObject(data.results)
-    await console.log(allPokemons)
-    await applyFilter("all");
+    await console.log(allPokemons);
+    //await applyFilter(filterValue);
   }
 
   const applyFilter = (value) => {
     setFilterValue(value);
-    filterValues(35,60,"special-defense");
+    filterValues(35,60,value);
   }
 
   const filterValues = (value1,value2,value) => {

@@ -27,7 +27,7 @@ function App() {
 
   const applyFilter = (value) => {
     setFilterValue(value);
-    filterValues(35,60,value);
+    filterValues(filterMin,filterMax,value);
   }
 
   const handleMin = (e) => {

@@ -17,28 +17,25 @@ function App() {
       result.forEach(async (pokemon) => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
         const data = await res.json();
-        setAllPokemons(currentList => [...currentList,data])
+        setAllPokemonsFiltered(currentList => [...currentList,data])
       });
     }
     createPokemonObject(data.results);
-    applyFilter(filterValue);
+  //  applyFilter(filterValue);
     await console.log(allPokemons);
 
   }
 
   const applyFilter = (value) => {
     setFilterValue(value);
-    filterValues(filterMin,filterMax,filterValue);
   }
 
   const handleMin = (e) => {
-    setFilterMin(e.target.value);
-    filterValues(filterMin,filterMax,filterValue);
+    setFilterMin();
   }
 
   const handleMax = (e) => {
     setFilterMax(e.target.value);
-    filterValues(filterMin,filterMax,filterValue);
   }
 
   const filterValues = async (value1,value2,value) => {
@@ -114,6 +111,10 @@ else {
   useEffect(()=>{
     getAllPokemons();
   },[])
+
+  useEffect(() => {
+    filterValues(filterMin,filterMax,filterValue);
+  },[filterValue,filterMin,filterMax]);
 
   return (
     <div>

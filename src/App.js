@@ -4,6 +4,8 @@ import PokemonThumbnail from "./Components/PokemonThumbnail";
 function App() {
   const [allPokemons,setAllPokemons] = useState([]);
   const [filterValue,setFilterValue] = useState('all');
+  const [filterMin,setFilterMin] = useState(45);
+  const [filterMax,setFilterMax] = useState(60);
   const [allPokemonsFiltered,setAllPokemonsFiltered] = useState([]);
   const [loadPoke,setLoadPoke] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
   const getAllPokemons = async () =>{
@@ -28,7 +30,17 @@ function App() {
     filterValues(35,60,value);
   }
 
-  const filterValues = (value1,value2,value) => {
+  const handleMin = (e) => {
+    setFilterMin(e.target.value);
+    console.log("filter min value is " + filterMin);
+  }
+
+  const handleMax = (e) => {
+    setFilterMax(e.target.value);
+    console.log("filter max value is " + filterMax);
+  }
+
+  const filterValues = async (value1,value2,value) => {
 
     console.log("inside pokemon filter function " + value );
 
@@ -101,12 +113,16 @@ else {
   
   
   })
-    let tempList = [];
-    console.log("-----1------")
-    console.log(temp);
-    console.log("------2-------")
-    setAllPokemonsFiltered(tempList => [...tempList,temp])
-
+    let tempList = [...temp];
+    console.log("-----1------");
+    console.log(tempList);
+    console.log("------2-------");
+    await setAllPokemonsFiltered(tempList);
+    console.log("debugger text 1");
+    console.log(tempList);
+    console.log("desuuuuuuuubugger text 2");
+    console.log(allPokemonsFiltered);
+    console.log("debugger text 3");
   }
 
 
@@ -131,17 +147,21 @@ else {
             <button className="btn" onClick={()=>applyFilter('special-defense')}>special defense</button>
             <button className="btn" onClick={()=>applyFilter('speed')}>speed</button>
           </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
           <p>From :</p>
-          <input type="number" value="7"></input>
+          <input type="number"  value={filterMin} onChange={handleMin}></input>
           <p>To :</p>
-          <input type="number" value="7"></input>
+          <input type="number"  value={filterMax} onChange={handleMax}></input>
         </div>
       </div>
       <h1>Pokemon Kingdom</h1>
     
      <div className="pokemon-container">
        <div className="all-container">
-          {allPokemons.map((pokemon,index)=> 
+          {allPokemonsFiltered.map((pokemon,index)=> 
                  <PokemonThumbnail
                   id = {pokemon.id}
                   name = {pokemon.name}

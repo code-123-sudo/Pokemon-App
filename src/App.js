@@ -22,36 +22,26 @@ function App() {
     }
     createPokemonObject(data.results)
     await console.log(allPokemons);
-    //await applyFilter(filterValue);
   }
 
   const applyFilter = (value) => {
     setFilterValue(value);
-    filterValues(filterMin,filterMax,value);
+    filterValues(filterMin,filterMax,filterValue);
   }
 
   const handleMin = (e) => {
     setFilterMin(e.target.value);
-    console.log("filter min value is " + filterMin);
+    filterValues(filterMin,filterMax,filterValue);
   }
 
   const handleMax = (e) => {
     setFilterMax(e.target.value);
-    console.log("filter max value is " + filterMax);
+    filterValues(filterMin,filterMax,filterValue);
   }
 
   const filterValues = async (value1,value2,value) => {
-
-    console.log("inside pokemon filter function " + value );
-
     let temp = allPokemons.filter((pokemon) => {
-      //if ( value === "all") {
-      //  return true;
-      //}else {
-      //  return false;
-     // }
       if ( value === "hp") {
-        console.log("---->" + pokemon.stats[0].base_stat)
         if ( pokemon.stats[0].base_stat >= value1  && pokemon.stats[0].base_stat <= value2){
           return true;
         }
@@ -61,7 +51,6 @@ function App() {
     }
 
     if ( value === "attack") {
-      console.log("---->" + pokemon.stats[1].base_stat)
       if ( pokemon.stats[1].base_stat >= value1  && pokemon.stats[1].base_stat <= value2){
         return true;
       }
@@ -71,7 +60,6 @@ function App() {
   }
 
   if ( value === "defense") {
-    console.log("---->" + pokemon.stats[2].base_stat)
     if ( pokemon.stats[2].base_stat >= value1  && pokemon.stats[2].base_stat <= value2){
       return true;
     }
@@ -81,7 +69,6 @@ function App() {
 }
 
 if ( value === "special-attack") {
-  console.log("---->" + pokemon.stats[3].base_stat)
   if ( pokemon.stats[3].base_stat >= value1  && pokemon.stats[3].base_stat <= value2){
     return true;
   }
@@ -91,7 +78,6 @@ else {
 }
 
 if ( value === "special-defense") {
-  console.log("---->" + pokemon.stats[4].base_stat)
   if ( pokemon.stats[4].base_stat >= value1  && pokemon.stats[4].base_stat <= value2){
     return true;
   }
@@ -101,7 +87,6 @@ else {
 }
 
 if ( value === "speed") {
-  console.log("---->" + pokemon.stats[5].base_stat)
   if ( pokemon.stats[5].base_stat >= value1  && pokemon.stats[5].base_stat <= value2){
     return true;
   }
@@ -114,15 +99,8 @@ else {
   
   })
     let tempList = [...temp];
-    console.log("-----1------");
-    console.log(tempList);
-    console.log("------2-------");
+
     await setAllPokemonsFiltered(tempList);
-    console.log("debugger text 1");
-    console.log(tempList);
-    console.log("desuuuuuuuubugger text 2");
-    console.log(allPokemonsFiltered);
-    console.log("debugger text 3");
   }
 
 

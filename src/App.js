@@ -20,8 +20,10 @@ function App() {
         setAllPokemons(currentList => [...currentList,data])
       });
     }
-    createPokemonObject(data.results)
+    createPokemonObject(data.results);
+    applyFilter(filterValue);
     await console.log(allPokemons);
+
   }
 
   const applyFilter = (value) => {
@@ -41,6 +43,11 @@ function App() {
 
   const filterValues = async (value1,value2,value) => {
     let temp = allPokemons.filter((pokemon) => {
+
+      if ( value == "all") {
+        return true;
+      }
+
       if ( value === "hp") {
         if ( pokemon.stats[0].base_stat >= value1  && pokemon.stats[0].base_stat <= value2){
           return true;
@@ -100,12 +107,12 @@ else {
   })
     let tempList = [...temp];
 
-    await setAllPokemonsFiltered(tempList);
+    setAllPokemonsFiltered(tempList);
   }
 
 
   useEffect(()=>{
-    getAllPokemons()
+    getAllPokemons();
   },[])
 
   return (
